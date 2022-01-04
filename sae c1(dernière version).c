@@ -54,6 +54,7 @@ int main ()
         case 3 : printf("\n- Supprimer -\n");
                 break;
         case 4 : printf("\n- Ajouter -\n");
+                ajout();
                 break;
         default : printf("\n- Erreur -\n");
     }

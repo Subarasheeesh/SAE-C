@@ -108,3 +108,51 @@ PERSONNE stock(char line[250])
                 strcpy(p.metier,buffer);
         return p;
 }
+
+void ajout()
+{
+    FILE* fichier = fopen("annuaire5000.csv", "a+");
+
+    char prenom[30];
+    char nom[30];
+    char ville[30];
+    char codep[30];
+    char numero[30];
+    char email[50];
+    char metier[30];
+
+
+    if (!fichier) {
+        // Erreur lors de l'ouverture du fichier
+        printf("Can't open file\n");
+        return 0;
+    }
+
+
+    // Demande à l'utilisateur de rentrer toutes les données requises pour l'ajout d'une nouvelle ligne
+    printf("\nPrenom\n");
+    scanf("%s", &prenom);
+    printf("\nNom\n");
+    scanf("%s", &nom);
+    printf("\nVille\n");
+    scanf("%s", &ville);
+    printf("\nEntrez un numéro de département\n");
+    scanf("%s", &codep);
+    printf("\nEntrez un numéro de téléphone\n");
+    scanf("%s", &numero);
+    printf("\nEntrez une adresse mail\n");
+    scanf("%s", &email);
+    printf("\nEntrez un métier\n");
+    scanf("%s", &metier);
+
+    // Met les données saisit dans le tableau
+    fprintf(fichier, "%s, %s, %s, %s, %s, %s, %s\n", prenom,
+            nom, ville, codep,numero, email, metier);
+
+    printf("\nNouvelle ligne aoutée au tableau !");
+
+    fclose(fichier);
+    return 0;
+
+
+}

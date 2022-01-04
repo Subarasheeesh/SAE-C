@@ -67,3 +67,20 @@
 	"fonction.h"
 	"variable.h"
 
+1641304675 source:c:\users\tilio\documents\etude\git\sae-c\fonction.c
+	<stdio.h>
+	"variable.h"
+	"fonction.h"
+
+1641039027 c:\users\tilio\documents\etude\git\sae-c\variable.h
+
+1641304241 c:\users\tilio\documents\etude\git\sae-c\fonction.h
+	"variable.h"
+
+1641304007 source:c:\users\tilio\documents\etude\git\sae-c\sae c1(dernière version).c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonction.h"
+	"variable.h"
+

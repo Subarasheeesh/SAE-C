@@ -129,7 +129,7 @@ void ajout()
     }
 
 
-    // Demande à l'utilisateur de rentrer toutes les données requises pour l'ajout d'une nouvelle ligne
+    // Demande à l'utilisateur de rentrer toutes les données requises pour l'ajout d'une nouvelle ligne attention pas d'espace
     printf("\nPrenom\n");
     scanf("%s", &prenom);
     printf("\nNom\n");
@@ -149,7 +149,30 @@ void ajout()
     fprintf(fichier, "%s, %s, %s, %s, %s, %s, %s\n", prenom,
             nom, ville, codep,numero, email, metier);
 
-    printf("\nNouvelle ligne aoutée au tableau !");
+    printf("\n- Personne ajouter avec succes -\n");
+
+    fclose(fichier);
+    return 0;
+
+
+}
+
+void supprimer()
+{
+    int psuppr;
+
+    //Ouverture du fichier
+    FILE* fichier = fopen("annuaire5000.csv", "a+");
+    //Erreur
+    if (!fichier) {
+        printf("Can't open file\n");
+        return 0;
+    }
+
+    printf("\n- saisissez le numero de la personne que vous voulez supprimer -\n");
+    scanf("%d", &psuppr);
+
+    printf("\n- La personne %d supprimer avec succes -\n", psuppr);
 
     fclose(fichier);
     return 0;

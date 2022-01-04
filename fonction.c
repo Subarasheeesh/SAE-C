@@ -120,6 +120,7 @@ void ajout()
     char numero[30];
     char email[50];
     char metier[30];
+    int nb=0;
 
 
     if (!fichier) {
@@ -127,7 +128,6 @@ void ajout()
         printf("Can't open file\n");
         return 0;
     }
-
 
     // Demande à l'utilisateur de rentrer toutes les données requises pour l'ajout d'une nouvelle ligne attention pas d'espace
     printf("\nPrenom\n");
@@ -160,9 +160,10 @@ void ajout()
 void supprimer()
 {
     int psuppr;
+    int i=0;
 
     //Ouverture du fichier
-    FILE* fichier = fopen("annuaire5000.csv", "a+");
+    FILE* fichier = fopen("annuaire5000.csv", "r+");
     //Erreur
     if (!fichier) {
         printf("Can't open file\n");
@@ -176,6 +177,42 @@ void supprimer()
 
     fclose(fichier);
     return 0;
+}
 
 
+void recherche()
+{
+    int user;
+
+    printf("\n----- QUEL EST L'OBJET DE LA RECHERCHE ----------\n");
+    printf("-------------------------------------------------\n");
+    printf("-- 1 -- Prenom ----------------------------------\n");
+    printf("-- 2 -- Nom -------------------------------------\n");
+    printf("-- 3 -- Ville -----------------------------------\n");
+    printf("-- 4 -- Code Postale ----------------------------\n");
+    printf("-- 5 -- Numero De Telephone ---------------------\n");
+    printf("-- 6 -- Email -----------------------------------\n");
+    printf("-- 7 -- Metier ----------------------------------\n");
+    printf("-------------------------------------------------\n");
+    printf("-- Autre -- Annuler ---------------------------------\n");
+    printf("-------------------------------------------------\n\n");
+    scanf("%d", &user);
+    switch(user) {
+            case 1 : printf("\n- Recherche par Prenom -\n");
+
+                    break;
+            case 2 : printf("\n- Recherche par Nom -\n");
+                    break;
+            case 3 : printf("\n- Recherche par Ville -\n");
+                    break;
+            case 4 : printf("\n- Recherche par Code Postale -\n");
+                    break;
+            case 5 : printf("\n- Recherche par Numero De Telephone -\n");
+                    break;
+            case 6 : printf("\n- Recherche par Email -\n");
+                    break;
+            case 7 : printf("\n- Recherche par Metier -\n");
+                    break;
+            default : printf("\n- Annulation -\n");
+        }
 }

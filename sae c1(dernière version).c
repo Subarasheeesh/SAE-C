@@ -14,6 +14,7 @@ int main ()
     int taille =0,i;
     int user;
     int exit =1;
+    int nb=0;
 
     /*Ouverture Fichier*/
     FILE *fichier = fopen ("annuaire5000.csv", "r");
@@ -30,7 +31,6 @@ int main ()
            tab[taille]=stock(line);
            taille++;
         }
-
     }
 
     while(!feof(fichier));
@@ -41,7 +41,7 @@ int main ()
 
 
     while(exit < 2){
-        printf("-------------- NAVIGATEUR ANNUAIRE --------------\n");
+        printf("\n-------------- NAVIGATEUR ANNUAIRE --------------\n");
         printf("-------------------------------------------------\n");
         printf("-- 1 -- Rechercher ------------------------------\n");
         printf("-- 2 -- Trier par ordre alphabetique ------------\n");
@@ -52,6 +52,7 @@ int main ()
         scanf("%d", &user);
         switch(user) {
             case 1 : printf("\n- Recherche -\n");
+                    recherche();
                     break;
             case 2 : printf("\n- Trie par ordre alphabetique -\n");
                     break;

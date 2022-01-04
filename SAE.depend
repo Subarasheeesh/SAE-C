@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1639651592 source:c:\users\etulyon1\documents\c cour iut\sae c\sae\fonction.c
+	<stdio.h>
+	"variable.h"
+	"fonction.h"
+
+1639651293 c:\users\etulyon1\documents\c cour iut\sae c\sae\variable.h
+
+1639651293 c:\users\etulyon1\documents\c cour iut\sae c\sae\fonction.h
+	"variable.h"
+
+1639652775 source:c:\users\etulyon1\documents\c cour iut\sae c\sae\sae c1(dernière version).c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonction.h"
+	"variable.h"
+
+1639651592 source:c:\users\lionel charrier\desktop\tilio\sae\fonction.c
+	<stdio.h>
+	"variable.h"
+	"fonction.h"
+
+1639651293 c:\users\lionel charrier\desktop\tilio\sae\variable.h
+
+1639651293 c:\users\lionel charrier\desktop\tilio\sae\fonction.h
+	"variable.h"
+
+1640794384 source:c:\users\lionel charrier\desktop\tilio\sae\sae c1(dernière version).c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonction.h"
+	"variable.h"
+
+1641039027 source:c:\users\tilio\documents\etude\c\sae-20220101t120642z-001\sae\fonction.c
+	<stdio.h>
+	"variable.h"
+	"fonction.h"
+
+1641039027 c:\users\tilio\documents\etude\c\sae-20220101t120642z-001\sae\variable.h
+
+1641039027 c:\users\tilio\documents\etude\c\sae-20220101t120642z-001\sae\fonction.h
+	"variable.h"
+
+1641039027 source:c:\users\tilio\documents\etude\c\sae-20220101t120642z-001\sae\sae c1(dernière version).c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonction.h"
+	"variable.h"
+
+1641039027 source:c:\users\tilio\documents\etude\c\officiel c\sae-20220101t120642z-001\sae\fonction.c
+	<stdio.h>
+	"variable.h"
+	"fonction.h"
+
+1641039027 c:\users\tilio\documents\etude\c\officiel c\sae-20220101t120642z-001\sae\variable.h
+
+1641039027 c:\users\tilio\documents\etude\c\officiel c\sae-20220101t120642z-001\sae\fonction.h
+	"variable.h"
+
+1641044886 source:c:\users\tilio\documents\etude\c\officiel c\sae-20220101t120642z-001\sae\sae c1(dernière version).c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonction.h"
+	"variable.h"
+

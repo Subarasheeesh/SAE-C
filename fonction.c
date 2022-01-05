@@ -146,8 +146,7 @@ void ajout()
     scanf("%s", &metier);
 
     // Met les données saisit dans le tableau
-    fprintf(fichier, "%s, %s, %s, %s, %s, %s, %s\n", prenom,
-            nom, ville, codep,numero, email, metier);
+    fprintf(fichier, "%s,%s,%s,%s,%s,%s,%s",prenom,nom,ville,codep,numero,email,metier);
 
     printf("\n- Personne ajouter avec succes -\n");
 
@@ -200,29 +199,104 @@ void recherche(PERSONNE tab[6000], int taille)
     printf("-------------------------------------------------\n\n");
     scanf("%d", &user);
     switch(user) {
-            case 1 : printf("\n- Recherche par Prenom -\n");
-                    printf("\n- Entrez votre recherche -\n");
-                    scanf("%d", &search);
+            case 1 :
+                printf("\n- Recherche par Prenom -\n");
+                printf("\n- Entrez votre recherche (Pensez a la majuscule) -\n");
+                scanf("%s", &search);
+                printf("\n");
+                do {
+                    //debogage vvv
+                    //printf("!---- %s %s %i ----!\n", search, tab[i].prenom, strcmp(search,tab[i].prenom));
+                    if(strcmp(search,tab[i].prenom)==0){
+                        printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                    }
+                    i++;
+                }
+                while (i<taille);
+                break;
+            case 2 : printf("\n- Recherche par Nom -\n");
+                    printf("\n- Entrez votre recherche (Pensez a la majuscule) -\n");
+                    scanf("%s", &search);
+                    printf("\n");
                     do {
-                        printf("%s", tab[i].prenom)
-                       if(strcmp(search,tab[i].prenom)){
-                        printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostale: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
-                       };
-                       i++;
-                       }
+                        //debogage vvv
+                        //printf("!---- %s %s %i ----!\n", search, tab[i].nom, strcmp(search,tab[i].nom));
+                        if(strcmp(search,tab[i].nom)==0){
+                            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                        }
+                        i++;
+                    }
                     while (i<taille);
                     break;
-            case 2 : printf("\n- Recherche par Nom -\n");
-                    break;
             case 3 : printf("\n- Recherche par Ville -\n");
+                    printf("\n- Entrez votre recherche (En majuscule) -\n");
+                    scanf("%s", &search);
+                    printf("\n");
+                    do {
+                        //debogage vvv
+                        //printf("!---- %s %s %i ----!\n", search, tab[i].ville, strcmp(search,tab[i].ville));
+                        if(strcmp(search,tab[i].ville)==0){
+                            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                        }
+                        i++;
+                    }
+                    while (i<taille);
                     break;
             case 4 : printf("\n- Recherche par Code Postale -\n");
+                    printf("\n- Entrez votre recherche -\n");
+                    scanf("%s", &search);
+                    printf("\n");
+                    do {
+                        //debogage vvv
+                        //printf("!---- %s %s %i ----!\n", search, tab[i].codep, strcmp(search,tab[i].codep));
+                        if(strcmp(search,tab[i].codep)==0){
+                            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                        }
+                        i++;
+                    }
+                    while (i<taille);
                     break;
             case 5 : printf("\n- Recherche par Numero De Telephone -\n");
+                    printf("\n- Entrez votre recherche -\n");
+                    scanf("%s", &search);
+                    printf("\n");
+                    do {
+                        //debogage vvv
+                        //printf("!---- %s %s %i ----!\n", search, tab[i].numero, strcmp(search,tab[i].numero));
+                        if(strcmp(search,tab[i].numero)==0){
+                            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                        }
+                        i++;
+                    }
+                    while (i<taille);
                     break;
             case 6 : printf("\n- Recherche par Email -\n");
+                    printf("\n- Entrez votre recherche -\n");
+                    scanf("%s", &search);
+                    printf("\n");
+                    do {
+                        //debogage vvv
+                        //printf("!---- %s %s %i ----!\n", search, tab[i].email, strcmp(search,tab[i].email));
+                        if(strcmp(search,tab[i].email)==0){
+                            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                        }
+                        i++;
+                    }
+                    while (i<taille);
                     break;
             case 7 : printf("\n- Recherche par Metier -\n");
+                    printf("\n- Entrez votre recherche -\n");
+                    scanf("%s", &search);
+                    printf("\n");
+                    do {
+                        //debogage vvv
+                        printf("!---- %s %s %i ----!\n", search, tab[i].metier, strcmp(search,tab[i].metier));
+                        if(strcmp(search,tab[i].metier)==0){
+                            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                        }
+                        i++;
+                    }
+                    while (i<taille);
                     break;
             default : printf("\n- Annulation -\n");
         }

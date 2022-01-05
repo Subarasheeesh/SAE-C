@@ -180,9 +180,11 @@ void supprimer()
 }
 
 
-void recherche()
+void recherche(PERSONNE tab[6000], int taille)
 {
     int user;
+    char search[30];
+    int i=0;
 
     printf("\n----- QUEL EST L'OBJET DE LA RECHERCHE ----------\n");
     printf("-------------------------------------------------\n");
@@ -194,12 +196,21 @@ void recherche()
     printf("-- 6 -- Email -----------------------------------\n");
     printf("-- 7 -- Metier ----------------------------------\n");
     printf("-------------------------------------------------\n");
-    printf("-- Autre -- Annuler ---------------------------------\n");
+    printf("-- Autre -- Annuler -----------------------------\n");
     printf("-------------------------------------------------\n\n");
     scanf("%d", &user);
     switch(user) {
             case 1 : printf("\n- Recherche par Prenom -\n");
-
+                    printf("\n- Entrez votre recherche -\n");
+                    scanf("%d", &search);
+                    do {
+                        printf("%s", tab[i].prenom)
+                       if(strcmp(search,tab[i].prenom)){
+                        printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostale: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                       };
+                       i++;
+                       }
+                    while (i<taille);
                     break;
             case 2 : printf("\n- Recherche par Nom -\n");
                     break;

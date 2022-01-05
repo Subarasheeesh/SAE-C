@@ -54,8 +54,8 @@ int main ()
                     break;
             case 2 : printf("\n- Trie par ordre alphabetique -\n");
                     break;
-            case 3 : printf("\n- Supprimer -\n");
-                    supprimer();
+            case 3 : printf("\n--------------- SUPPRIMER ----------------\n");
+                    supprimer(taille);
                     break;
             case 4 : printf("\n- Ajouter -\n");
                     ajout();

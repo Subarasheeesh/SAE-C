@@ -156,7 +156,7 @@ void ajout()
 
 }
 
-void supprimer()
+void supprimer(int taille)
 {
     int psuppr;
     int i=0;
@@ -168,12 +168,21 @@ void supprimer()
         printf("Can't open file\n");
         return 0;
     }
-
-    printf("\n- saisissez le numero de la personne que vous voulez supprimer -\n");
+    printf("------------------------------------------\n");
+    printf("------- Assurez vous de connaitre --------\n");
+    printf("-- le numero de la personne a supprimer --\n");
+    printf("------------------------------------------\n");
+    printf("--- saisissez le numero de la personne ---\n");
+    printf("-------- que vous voulez supprimer -------\n");
+    printf("-------- Ou entrez 0 pour annuler --------\n");
+    printf("------------------------------------------\n\n");
     scanf("%d", &psuppr);
-
-    printf("\n- La personne %d supprimer avec succes -\n", psuppr);
-
+    if(psuppr!=0){
+        printf("\n- La personne %d supprimer avec succes -\n", psuppr);
+    }
+    else{
+        printf("\n- Annulation -\n");
+    }
     fclose(fichier);
     return 0;
 }

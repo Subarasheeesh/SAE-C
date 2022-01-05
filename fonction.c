@@ -187,6 +187,7 @@ void recherche(PERSONNE tab[6000], int taille)
 
     printf("\n----- QUEL EST L'OBJET DE LA RECHERCHE ----------\n");
     printf("-------------------------------------------------\n");
+    printf("-- 0 -- Peut importe ----------------------------\n");
     printf("-- 1 -- Prenom ----------------------------------\n");
     printf("-- 2 -- Nom -------------------------------------\n");
     printf("-- 3 -- Ville -----------------------------------\n");
@@ -199,6 +200,21 @@ void recherche(PERSONNE tab[6000], int taille)
     printf("-------------------------------------------------\n\n");
     scanf("%d", &user);
     switch(user) {
+            case 0 :
+                printf("\n- Recherche -\n");
+                printf("\n- Entrez votre recherche (Pensez a la majuscule si il y en a une) -\n");
+                scanf("%s", &search);
+                printf("\n");
+                do {
+                    //debogage vvv
+                    //printf("!---- %s %s %i ----!\n", search, tab[i].prenom, strcmp(search,tab[i].prenom));
+                    if(strcmp(search,tab[i].prenom)==0 || strcmp(search,tab[i].nom)==0 || strcmp(search,tab[i].ville)==0 || strcmp(search,tab[i].codep)==0 || strcmp(search,tab[i].numero)==0 || strcmp(search,tab[i].email)==0 || strcmp(search,tab[i].metier)==0){
+                        printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                    }
+                    i++;
+                }
+                while (i<taille);
+                break;
             case 1 :
                 printf("\n- Recherche par Prenom -\n");
                 printf("\n- Entrez votre recherche (Pensez a la majuscule) -\n");

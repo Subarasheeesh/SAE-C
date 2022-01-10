@@ -3,6 +3,7 @@
 #include<string.h>
 #include "fonction.h"
 #include "variable.h"
+#include <stdbool.h>
 
 
 
@@ -55,7 +56,7 @@ int main ()
             case 2 : printf("\n- Trie par ordre alphabetique -\n");
                     break;
             case 3 : printf("\n--------------- SUPPRIMER ----------------\n");
-                    supprimer(taille);
+                    deleterow();
                     break;
             case 4 : printf("\n- Ajouter -\n");
                     ajout();
@@ -69,3 +70,40 @@ int main ()
     fclose (fichier);
     return EXIT_SUCCESS;
 }
+
+
+void deleterow()
+{
+    FILE *fichier, *temp;
+    char filename[20];
+    char temp_filename[20];
+    char buffer[250];
+    int delete_line = 0;
+    printf("File: ");
+    scanf("%s", filename);
+    strcpy(temp_filename, "temp____");
+    strcat(temp_filename, filename);
+    printf("Delete Line: ");
+    scanf("%d", &delete_line);
+    fichier = fopen("annuaire5000.csv", "r");
+    temp = fopen(temp_filename, "w");
+    if (fichier == NULL || temp == NULL)
+    {
+    printf("Error opening file(s)\n");
+    return 1;
+    }
+    bool keep_reading = true;
+    int current_line = 1;
+    do
+    {
+        fgets(buffer, 250, fichier);
+        if (feof(fichier)) keep_reading = false;
+        else if (current_line != delete_line)
+            fputs(buffer, temp);
+        current_line++;
+        } while (keep_reading);
+        fclose(fichier);
+        fclose(temp);
+        remove(filename);
+        rename(temp_filename, filename);
+    }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "variable.h"
 #include "fonction.h"
 
@@ -325,4 +326,6 @@ void recherche(PERSONNE tab[6000], int taille)
                     break;
             default : printf("\n- Annulation -\n");
         }
+
 }
+

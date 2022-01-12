@@ -157,38 +157,6 @@ void ajout()
 
 }
 
-void supprimer(int taille)
-{
-    int psuppr;
-    int i=0;
-
-    //Ouverture du fichier
-    FILE* fichier = fopen("annuaire5000.csv", "r+");
-    //Erreur
-    if (!fichier) {
-        printf("Can't open file\n");
-        return 0;
-    }
-    printf("------------------------------------------\n");
-    printf("------- Assurez vous de connaitre --------\n");
-    printf("-- le numero de la personne a supprimer --\n");
-    printf("------------------------------------------\n");
-    printf("--- saisissez le numero de la personne ---\n");
-    printf("-------- que vous voulez supprimer -------\n");
-    printf("-------- Ou entrez 0 pour annuler --------\n");
-    printf("------------------------------------------\n\n");
-    scanf("%d", &psuppr);
-    if(psuppr!=0){
-        printf("\n- La personne %d supprimer avec succes -\n", psuppr);
-    }
-    else{
-        printf("\n- Annulation -\n");
-    }
-    fclose(fichier);
-    return 0;
-}
-
-
 void recherche(PERSONNE tab[6000], int taille)
 {
     int user;
@@ -328,7 +296,7 @@ void recherche(PERSONNE tab[6000], int taille)
         }
 }
 
-void deleterow(PERSONNE personne[], int index, int *ligne){
+void supprimer(PERSONNE personne[], int index, int *ligne){
     int i;
     //Écrase la valeur i, a supprimer, par la valeur a i+1
     for (i = index; i < *ligne-1; i++){
@@ -337,7 +305,7 @@ void deleterow(PERSONNE personne[], int index, int *ligne){
 
     //Enlève une ligne
     *ligne -= 1;
-    printf("La personne %d vient d'etre supprimee [%d personnes restantes]\n", index + 1, *ligne);
+    printf("La personne %d vient d'etre supprimee [%d personnes restantes]\n", index, *ligne-1);
 }
 
 void sauvegarder(PERSONNE personne[],int ligne){

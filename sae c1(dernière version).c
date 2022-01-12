@@ -45,19 +45,23 @@ int main ()
     while(exit!=3){
         printf("\n-------------- NAVIGATEUR ANNUAIRE --------------\n");
         printf("-------------------------------------------------\n");
+        printf("-- 45 - Afficher --------------------------------\n");
         printf("-- 1 -- Rechercher ------------------------------\n");
         printf("-- 2 -- Trier par ordre alphabetique ------------\n");
         printf("-- 3 -- Supprimer -------------------------------\n");
         printf("-- 4 -- Ajouter ---------------------------------\n");
         printf("-- 5 -- recherche manquante ---------------------\n");
-        printf("-- 6 -- Quitter ---------------------------------\n");
+        printf("-- 6 -- sauvegarder -----------------------------\n");
+        printf("-- 7 -- Quitter ---------------------------------\n");
         printf("-------------------------------------------------\n\n");
+        fflush(stdin);
         scanf("%d", &user);
         switch(user) {
             case 1 : printf("\n- Recherche -\n");
                     recherche(tab, taille);
                     break;
             case 2 : printf("\n- Trie par ordre alphabetique -\n");
+                    tri_insert(tab,taille);
                     break;
             case 3 : printf("\n--------------- SUPPRIMER ----------------\n");
                     printf("- Insert la ligne a supprimer -\n");
@@ -71,8 +75,15 @@ int main ()
             case 5 : printf("\n- Affichage des personne avec des informations manquantes -\n");
                     recherchemanquante(tab,taille);
                     break;
-            case 6 : printf("\n- Exit -\n");
+            case 6 : printf("\n- sauvegarder -\n");
+                    sauvegarder(tab,taille);
+                    break;
+            case 7 : printf("\n- Exit -\n");
                     exit = 3;
+                    break;
+            case 45 : printf("\n- afficher -\n");
+                    for(i=0;i<taille;i++)
+                    printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostale: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
                     break;
             default : printf("\n- Erreur -\n");
         }

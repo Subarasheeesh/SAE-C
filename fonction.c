@@ -341,7 +341,10 @@ void deleterow(PERSONNE personne[], int index, int *ligne){
 }
 
 void sauvegarder(PERSONNE personne[],int ligne){
-    FILE * fichier = fopen("Annuaire5000.csv", "w");
+    char nom[100];
+    printf("- ecris le nom de la sauvegarde -\n");
+    scanf("%s", nom);
+    FILE * fichier = fopen(nom, "w");
 
     for (int i = 0 ; i<ligne ; i++){
         fprintf(fichier,"%s,%s,%s,%s,%s,%s,%s",personne[i].prenom,personne[i].nom,personne[i].ville,personne[i].codep,personne[i].numero,personne[i].email,personne[i].metier);
@@ -356,3 +359,21 @@ void recherchemanquante(PERSONNE personne[],int ligne){
         }
     }
 }
+
+void tri_insert(PERSONNE personne[],int ligne){
+    int i = 1;
+    int j;
+    PERSONNE petit;
+    while(i<ligne){
+        petit=personne[i];
+        j=i-1;
+        while(j>0&&strcasecmp(petit.nom,personne[j].nom)<0){
+            personne[j+1]=personne[j];
+            j=j-1;
+        }
+        personne[j+1]=petit;
+        i=i+1;
+    }
+}
+
+

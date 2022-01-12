@@ -4,4 +4,6 @@ PERSONNE stock(char line[250]);
 void ajout();
 void supprimer();
 void recherche();
-void deleterow();
+void deleterow(PERSONNE personne[], int index, int *nbrow);
+void sauvegarder(PERSONNE personne[],int ligne);
+void recherchemanquante(PERSONNE personne[],int ligne);

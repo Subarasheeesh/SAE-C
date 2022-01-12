@@ -326,6 +326,33 @@ void recherche(PERSONNE tab[6000], int taille)
                     break;
             default : printf("\n- Annulation -\n");
         }
-
 }
 
+void deleterow(PERSONNE personne[], int index, int *ligne){
+    int i;
+    //Écrase la valeur i, a supprimer, par la valeur a i+1
+    for (i = index; i < *ligne-1; i++){
+        personne[i] = personne[i + 1];
+    }
+
+    //Enlève une ligne
+    *ligne -= 1;
+    printf("La personne %d vient d'etre supprimee [%d personnes restantes]\n", index + 1, *ligne);
+}
+
+void sauvegarder(PERSONNE personne[],int ligne){
+    FILE * fichier = fopen("Annuaire5000.csv", "w");
+
+    for (int i = 0 ; i<ligne ; i++){
+        fprintf(fichier,"%s,%s,%s,%s,%s,%s,%s",personne[i].prenom,personne[i].nom,personne[i].ville,personne[i].codep,personne[i].numero,personne[i].email,personne[i].metier);
+    }
+    fclose(fichier);
+}
+
+void recherchemanquante(PERSONNE personne[],int ligne){
+    for(int i = 0;i < ligne;i++){
+        if (strlen(personne[i].prenom) == 0 || strlen(personne[i].nom) == 0 || strlen(personne[i].ville) == 0 || strlen(personne[i].codep) == 0 || strlen(personne[i].numero) == 0 || strlen(personne[i].email) == 0 || strlen(personne[i].metier) == 0){
+            printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,personne[i].prenom, personne[i].nom, personne[i].ville, personne[i].codep, personne[i].numero, personne[i].email, personne[i].metier);
+        }
+    }
+}

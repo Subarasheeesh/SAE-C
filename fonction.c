@@ -332,15 +332,105 @@ void tri_insert(PERSONNE personne[],int ligne){
     int i = 1;
     int j;
     PERSONNE petit;
-    while(i<ligne){
-        petit=personne[i];
-        j=i-1;
-        while(j>0&&strcasecmp(petit.nom,personne[j].nom)<0){
-            personne[j+1]=personne[j];
-            j=j-1;
-        }
-        personne[j+1]=petit;
-        i=i+1;
+    int choice;
+
+    printf("------------------------------------------\n");
+    printf("------- Trier par : ----------------------\n");
+    printf("-- 1 -- Prenom ---------------------------\n");
+    printf("-- 2 -- Nom ------------------------------\n");
+    printf("-- 3 -- Ville ----------------------------\n");
+    printf("-- 4 -- Code Postal ----------------------\n");
+    printf("-- 5 -- Telephone ------------------------\n");
+    printf("-- 6 -- Email ----------------------------\n");
+    printf("-- 7 -- Metier ---------------------------\n");
+    printf("------------------------------------------\n");
+    scanf("%d",&choice);
+
+    switch(choice){
+        case 1 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.prenom,personne[j].prenom)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
+        case 2 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.nom,personne[j].nom)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
+        case 3 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.ville,personne[j].ville)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
+        case 4 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.codep,personne[j].codep)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
+        case 5 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.numero,personne[j].numero)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
+        case 6 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.email,personne[j].email)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
+        case 7 :
+            while(i<ligne){
+                petit=personne[i];
+                j=i-1;
+                while(j>0&&strcasecmp(petit.metier,personne[j].metier)<0){
+                    personne[j+1]=personne[j];
+                    j=j-1;
+                }
+                personne[j+1]=petit;
+                i=i+1;
+            }
+            break;
     }
 }
 

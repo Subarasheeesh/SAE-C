@@ -346,11 +346,14 @@ void sauvegarder(PERSONNE personne[],int ligne){
 }
 
 void recherchemanquante(PERSONNE personne[],int ligne){
+    int j=0;
     for(int i = 0;i < ligne;i++){
         if (strlen(personne[i].prenom) == 0 || strlen(personne[i].nom) == 0 || strlen(personne[i].ville) == 0 || strlen(personne[i].codep) == 0 || strlen(personne[i].numero) == 0 || strlen(personne[i].email) == 0 || strlen(personne[i].metier) == 0){
             printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostal: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,personne[i].prenom, personne[i].nom, personne[i].ville, personne[i].codep, personne[i].numero, personne[i].email, personne[i].metier);
+            j++;
         }
     }
+    printf("il y a %d client possedant des donnees manquantes\n",j);
 }
 
 void tri_insert(PERSONNE personne[],int ligne){

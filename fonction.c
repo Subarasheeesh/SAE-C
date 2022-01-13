@@ -434,4 +434,20 @@ void tri_insert(PERSONNE personne[],int ligne){
     }
 }
 
+void modifier(PERSONNE personne[],int ligne){
+    int lignemodif;
+    char modif[50];
+    printf("- Entrez la ligne a modifier -\n");
+    scanf("%d",&lignemodif);
+    if (lignemodif>ligne-1){
+        printf("- Impossible, ligne vide -");
+    }
+    else{
+        printf("- changer le nom -\n");
+        scanf("%s",&modif);
+
+    }
+}
+
+
 

@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<string.h>
+#include <string.h>
+#include <stdbool.h>
+#include <time.h>
 #include "fonction.h"
 #include "variable.h"
-#include <stdbool.h>
-
-
 
 int main ()
 {
-    PERSONNE tab[6000];
     /*Declaration Variable*/
+    PERSONNE tab[6000];
     char line[250];
     int taille =1,i;
     int user;
     int exit =1;
     int suppr;
+    float temps;
+    clock_t t1, t2;
 
     /*Ouverture Fichier*/
     FILE *fichier = fopen ("annuaire5000.csv", "r");
@@ -56,7 +57,8 @@ int main ()
         fflush(stdin);
         scanf("%d", &user);
         switch(user) {
-            case 0 : do
+            case 0 :t1 = clock();
+                    do
                     {
                         if (fgets(line, sizeof(line), fichier))
                         {
@@ -67,6 +69,9 @@ int main ()
                     while(!feof(fichier));
                     for(i=0;i<taille;i++)
                     printf("client %d :\n Prenom: %s\n Nom: %s\n Ville: %s\n Codepostale: %s\n Numero: %s\n Email: %s\n Metier: %s\n",i,tab[i].prenom, tab[i].nom, tab[i].ville, tab[i].codep, tab[i].numero, tab[i].email, tab[i].metier);
+                    t2 = clock();
+                    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+                    printf("\ntemps d'execution = %f\n", temps);
                     break;
             case 1 : printf("\n- Recherche -\n");
                     recherche(tab, taille);
@@ -78,7 +83,11 @@ int main ()
             case 3 : printf("\n--------------- SUPPRIMER ----------------\n");
                     printf("- Insert la ligne a supprimer -\n");
                     scanf("%d", &suppr);
+                    t1 = clock();
                     supprimer(tab, suppr ,&taille);
+                    t2 = clock();
+                    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+                    printf("\ntemps d'execution = %f\n", temps);
                     break;
             case 4 : printf("\n- Ajouter -\n");
                     ajout();
@@ -86,8 +95,12 @@ int main ()
             case 5 : printf("\n- Modifier -\n");
                     modifier(tab,taille);
                     break;
-            case 6 : printf("\n- Affichage des personne avec des informations manquantes -\n");
+            case 6 : printf("\n- Affichage des personnes avec des informations manquantes -\n");
+                    t1 = clock();
                     recherchemanquante(tab,taille);
+                    t2 = clock();
+                    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+                    printf("\ntemps d'execution = %f\n", temps);
                     break;
             case 7 : printf("\n- sauvegarder -\n");
                     sauvegarder(tab,taille);

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 #include "variable.h"
 #include "fonction.h"
 
@@ -122,6 +123,8 @@ void ajout()
     char email[50];
     char metier[30];
     int nb=0;
+    float temps;
+    clock_t t1, t2;
 
 
     if (!fichier) {
@@ -146,11 +149,14 @@ void ajout()
     printf("\nEntrez un métier\n");
     scanf("%s", &metier);
 
+    t1 = clock();
     // Met les données saisit dans le tableau
     fprintf(fichier, "%s,%s,%s,%s,%s,%s,%s",prenom,nom,ville,codep,numero,email,metier);
 
     printf("\n- Personne ajouter avec succes -\n");
-
+    t2 = clock();
+    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+    printf("\ntemps d'execution = %f\n", temps);
     fclose(fichier);
     return 0;
 
@@ -162,6 +168,8 @@ void recherche(PERSONNE tab[6000], int taille)
     int user;
     char search[30];
     int i=0;
+    float temps;
+    clock_t t1, t2;
 
     printf("\n----- QUEL EST L'OBJET DE LA RECHERCHE ----------\n");
     printf("-------------------------------------------------\n");
@@ -183,6 +191,7 @@ void recherche(PERSONNE tab[6000], int taille)
                 printf("\n- Entrez votre recherche (Pensez a la majuscule si il y en a une) -\n");
                 scanf("%s", &search);
                 printf("\n");
+                t1 = clock();
                 do {
                     //debogage vvv
                     //printf("!---- %s %s %i ----!\n", search, tab[i].prenom, strcmp(search,tab[i].prenom));
@@ -198,6 +207,7 @@ void recherche(PERSONNE tab[6000], int taille)
                 printf("\n- Entrez votre recherche (Pensez a la majuscule) -\n");
                 scanf("%s", &search);
                 printf("\n");
+                t1 = clock();
                 do {
                     //debogage vvv
                     //printf("!---- %s %s %i ----!\n", search, tab[i].prenom, strcmp(search,tab[i].prenom));
@@ -212,6 +222,7 @@ void recherche(PERSONNE tab[6000], int taille)
                     printf("\n- Entrez votre recherche (Pensez a la majuscule) -\n");
                     scanf("%s", &search);
                     printf("\n");
+                    t1 = clock();
                     do {
                         //debogage vvv
                         //printf("!---- %s %s %i ----!\n", search, tab[i].nom, strcmp(search,tab[i].nom));
@@ -226,6 +237,7 @@ void recherche(PERSONNE tab[6000], int taille)
                     printf("\n- Entrez votre recherche (En majuscule) -\n");
                     scanf("%s", &search);
                     printf("\n");
+                    t1 = clock();
                     do {
                         //debogage vvv
                         //printf("!---- %s %s %i ----!\n", search, tab[i].ville, strcmp(search,tab[i].ville));
@@ -240,6 +252,7 @@ void recherche(PERSONNE tab[6000], int taille)
                     printf("\n- Entrez votre recherche -\n");
                     scanf("%s", &search);
                     printf("\n");
+                    t1 = clock();
                     do {
                         //debogage vvv
                         //printf("!---- %s %s %i ----!\n", search, tab[i].codep, strcmp(search,tab[i].codep));
@@ -254,6 +267,7 @@ void recherche(PERSONNE tab[6000], int taille)
                     printf("\n- Entrez votre recherche -\n");
                     scanf("%s", &search);
                     printf("\n");
+                    t1 = clock();
                     do {
                         //debogage vvv
                         //printf("!---- %s %s %i ----!\n", search, tab[i].numero, strcmp(search,tab[i].numero));
@@ -268,6 +282,7 @@ void recherche(PERSONNE tab[6000], int taille)
                     printf("\n- Entrez votre recherche -\n");
                     scanf("%s", &search);
                     printf("\n");
+                    t1 = clock();
                     do {
                         //debogage vvv
                         //printf("!---- %s %s %i ----!\n", search, tab[i].email, strcmp(search,tab[i].email));
@@ -282,6 +297,7 @@ void recherche(PERSONNE tab[6000], int taille)
                     printf("\n- Entrez votre recherche -\n");
                     scanf("%s", &search);
                     printf("\n");
+                    t1 = clock();
                     do {
                         //debogage vvv
                         printf("!---- %s %s %i ----!\n", search, tab[i].metier, strcmp(search,tab[i].metier));
@@ -294,6 +310,9 @@ void recherche(PERSONNE tab[6000], int taille)
                     break;
             default : printf("\n- Annulation -\n");
         }
+        t2 = clock();
+        temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+        printf("\ntemps d'execution = %f\n", temps);
 }
 
 void supprimer(PERSONNE personne[], int index, int *ligne){
@@ -310,14 +329,20 @@ void supprimer(PERSONNE personne[], int index, int *ligne){
 
 void sauvegarder(PERSONNE personne[],int ligne){
     char nom[100];
+    float temps;
+    clock_t t1, t2;
     printf("- ecris le nom de la sauvegarde -\n");
     scanf("%s", nom);
+    t1 = clock();
     FILE * fichier = fopen(nom, "w");
 
     for (int i = 0 ; i<ligne ; i++){
         fprintf(fichier,"%s,%s,%s,%s,%s,%s,%s",personne[i].prenom,personne[i].nom,personne[i].ville,personne[i].codep,personne[i].numero,personne[i].email,personne[i].metier);
     }
     fclose(fichier);
+    t2 = clock();
+    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+    printf("\ntemps d'execution = %f\n", temps);
 }
 
 void recherchemanquante(PERSONNE personne[],int ligne){
@@ -333,6 +358,8 @@ void tri_insert(PERSONNE personne[],int ligne){
     int j;
     PERSONNE petit;
     int choice;
+    float temps;
+    clock_t t1, t2;
 
     printf("------------------------------------------\n");
     printf("------- Trier par : ----------------------\n");
@@ -345,7 +372,7 @@ void tri_insert(PERSONNE personne[],int ligne){
     printf("-- 7 -- Metier ---------------------------\n");
     printf("------------------------------------------\n");
     scanf("%d",&choice);
-
+    t1 = clock();
     switch(choice){
         case 1 :
             while(i<ligne){
@@ -432,6 +459,9 @@ void tri_insert(PERSONNE personne[],int ligne){
             }
             break;
     }
+    t2 = clock();
+    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+    printf("\ntemps d'execution = %f\n", temps);
 }
 
 void modifier(PERSONNE personne[],int ligne){

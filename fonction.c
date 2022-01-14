@@ -4,8 +4,21 @@
 #include "variable.h"
 #include "fonction.h"
 
+/*
+by Guettal Assala
 
-
+entrée:
+prenom: char
+nom:char
+ville:char
+codep:char
+numero:char
+email:char
+metier:char
+sortie:p(la structure)
+precondition:
+postcondition: on construit la structure pour stocker les informations récupérer
+*/
 PERSONNE stock(char line[250])
 {
         char d= ',';
@@ -110,7 +123,21 @@ PERSONNE stock(char line[250])
                 strcpy(p.metier,buffer);
         return p;
 }
+/*
+by Guettal Assala
 
+entrée:
+prenom: char
+nom:char
+ville:char
+codep:char
+numero:char
+email:char
+metier:char
+sortie: personne ajouté dans le csv
+precondition:
+postcondition: la fonction nous permet d'ajouter une nouvelle personne dans le fichier csv
+*/
 void ajout()
 {
     FILE* fichier = fopen("annuaire5000.csv", "a+");
@@ -159,10 +186,9 @@ void ajout()
     printf("\ntemps d'execution = %f\n", temps);
     fclose(fichier);
     return 0;
-
-
 }
 
+/*by Charrier Tilio*/
 void recherche(PERSONNE tab[6000], int taille)
 {
     int user;
@@ -315,6 +341,7 @@ void recherche(PERSONNE tab[6000], int taille)
         printf("\ntemps d'execution = %f\n", temps);
 }
 
+/*by Charrier Tilio*/
 void supprimer(PERSONNE personne[], int index, int *ligne){
     int i;
     //Écrase la valeur i, a supprimer, par la valeur a i+1
@@ -327,6 +354,7 @@ void supprimer(PERSONNE personne[], int index, int *ligne){
     printf("La personne %d vient d'etre supprimee [%d personnes restantes]\n", index, *ligne-1);
 }
 
+/*by Charrier Tilio*/
 void sauvegarder(PERSONNE personne[],int ligne){
     char nom[100];
     float temps;
@@ -345,6 +373,7 @@ void sauvegarder(PERSONNE personne[],int ligne){
     printf("\ntemps d'execution = %f\n", temps);
 }
 
+/*by Charrier Tilio*/
 void recherchemanquante(PERSONNE personne[],int ligne){
     int j=0;
     for(int i = 0;i < ligne;i++){
@@ -356,6 +385,7 @@ void recherchemanquante(PERSONNE personne[],int ligne){
     printf("il y a %d client possedant des donnees manquantes\n",j);
 }
 
+/*by Charrier Tilio*/
 void tri_insert(PERSONNE personne[],int ligne){
     int i = 1;
     int j;
@@ -467,6 +497,7 @@ void tri_insert(PERSONNE personne[],int ligne){
     printf("\ntemps d'execution = %f\n", temps);
 }
 
+/*by Charrier Tilio*/
 void modifier(PERSONNE personne[],int ligne){
     int lignemodif;
     int user;

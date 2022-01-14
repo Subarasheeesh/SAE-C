@@ -469,17 +469,80 @@ void tri_insert(PERSONNE personne[],int ligne){
 
 void modifier(PERSONNE personne[],int ligne){
     int lignemodif;
-    char modif[50];
+    int user;
+    char modif[30];
     printf("- Entrez la ligne a modifier -\n");
     scanf("%d",&lignemodif);
-    if (lignemodif>ligne-1){
+    if (lignemodif>ligne-1&&lignemodif<0){
         printf("- Impossible, ligne vide -");
     }
     else{
-        printf("- changer le nom -\n");
-        scanf("%s",&modif);
-
-    }
+        printf("------------------------------------------\n");
+        printf("------- modifier : -----------------------\n");
+        printf("-- 0 -- Tout modifier --------------------\n");
+        printf("-- 1 -- Prenom ---------------------------\n");
+        printf("-- 2 -- Nom ------------------------------\n");
+        printf("-- 3 -- Ville ----------------------------\n");
+        printf("-- 4 -- Code Postal ----------------------\n");
+        printf("-- 5 -- Telephone ------------------------\n");
+        printf("-- 6 -- Email ----------------------------\n");
+        printf("-- 7 -- Metier ---------------------------\n");
+        printf("------------------------------------------\n");
+        scanf("%d",&user);
+        switch(user){
+            case 0 : printf("- changer le prenom -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].prenom,modif);
+                     printf("- changer le nom -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].nom,modif);
+                     printf("- changer le ville -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].ville,modif);
+                     printf("- changer le code postal -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].codep,modif);
+                     printf("- changer le telephone -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].numero,modif);
+                     printf("- changer le email -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].email,modif);
+                     printf("- changer le metier -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].metier,modif);
+                     break;
+            case 1 : printf("- changer le prenom -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].prenom,modif);
+                     break;
+            case 2 : printf("- changer le nom -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].nom,modif);
+                     break;
+            case 3 : printf("- changer le ville -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].ville,modif);
+                     break;
+            case 4 : printf("- changer le code postal -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].codep,modif);
+                     break;
+            case 5 : printf("- changer le telephone -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].numero,modif);
+                     break;
+            case 6 : printf("- changer le email -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].email,modif);
+                     break;
+            case 7 : printf("- changer le metier -\n");
+                     scanf("%s",&modif);
+                     strcpy(personne[lignemodif].metier,modif);
+                     break;
+            default : printf("- Erreur -\n");
+            }
+        }
 }
 
 

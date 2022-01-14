@@ -67,24 +67,26 @@
 	"fonction.h"
 	"variable.h"
 
-1642010148 source:c:\users\tilio\documents\etude\git\sae-c\fonction.c
+1642149843 source:c:\users\tilio\documents\etude\git\sae-c\fonction.c
 	<stdio.h>
 	<stdbool.h>
+	<time.h>
 	"variable.h"
 	"fonction.h"
 
 1641039027 c:\users\tilio\documents\etude\git\sae-c\variable.h
 
-1642008701 c:\users\tilio\documents\etude\git\sae-c\fonction.h
+1642149843 c:\users\tilio\documents\etude\git\sae-c\fonction.h
 	"variable.h"
 
-1642009606 source:c:\users\tilio\documents\etude\git\sae-c\sae c1(dernière version).c
+1642149843 source:c:\users\tilio\documents\etude\git\sae-c\sae c1(dernière version).c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<stdbool.h>
+	<time.h>
 	"fonction.h"
 	"variable.h"
-	<stdbool.h>
 
 1642078519 source:d:\documents\la cedst les truc important genre mes vrai document quoi\etudes\c\git\sae-c\fonction.c
 	<stdio.h>
